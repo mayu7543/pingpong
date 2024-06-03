@@ -1,0 +1,81 @@
+
+81
+}
+82
+​
+83
+function verificaColisaoRaquete() {
+84
+  if (xBolinha - raio < xRaquete + raqueteComprimento && yBolinha - raio < yRaquete + raqueteAltura && yBolinha + raio > yRaquete) {
+85
+    velocidadeXBolinha *= -1;
+86
+     raquetada.play();
+87
+  }
+88
+}
+89
+​
+90
+function verificaColisaoRaquete(x, y) {
+91
+    colidiu = collideRectCircle(x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
+92
+    if (colidiu){
+93
+        velocidadeXBolinha *= -1;
+94
+        raquetada.play();
+95
+  }
+96
+}
+97
+​
+98
+function movimentaRaqueteOponente(){
+99
+    if (keyIsDown(87)){
+100
+        yRaqueteOponente -= 10;
+101
+    }
+102
+    if (keyIsDown(83)){
+103
+        yRaqueteOponente += 10;
+104
+    }
+105
+}
+106
+​
+107
+​
+108
+function incluiPlacar(){
+109
+  stroke(255)
+110
+    textAlign(CENTER);
+111
+    textSize(16);
+112
+    fill(color(255,140, 0));
+113
+    rect(150, 10, 40, 20);
+114
+    fill(255);
+115
+    text(meusPontos, 170, 26);
+116
+    fill(color(255,140, 0));
+117
+    rect(450, 10, 40, 20);
+118
+    fill(255);
+119
+    text(pontosDoOponente, 470, 26);
+120
+​
